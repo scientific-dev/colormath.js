@@ -1,8 +1,4 @@
-import { rawHex, hexToRgb, rgbToHex } from "./utils";
-
-function fixedFloat (num: number): number {
-	return parseFloat(num.toFixed(1));
-}
+import { rawHex, hexToRgb, rgbToHex, fixedFloat } from "./utils";
 
 export namespace hex {
 
@@ -260,7 +256,7 @@ export namespace hsv {
 			case 5: result = [v, p, q]; break;
 		}
 
-		return result.map(x => x * 255) as number[];
+		return result.map(x => fixedFloat(x * 255)) as number[];
 	}
 	
 	/**

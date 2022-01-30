@@ -141,3 +141,10 @@ export function random (): number[] {
 export function randomHex (): string {
 	return `#${RANDOM(0xffffff).toString(16)}`;
 }
+
+/**
+ * Reduces the decimals of the float to one decimal.
+ */
+export function fixedFloat (num: number): number {
+	return parseFloat(num.toFixed(1));
+}

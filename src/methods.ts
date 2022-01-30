@@ -1,4 +1,4 @@
-import { RGB, ColorValue, hexToRgb, ColorResult } from "./utils";
+import { RGB, ColorValue, ColorResult, hexToRgb } from "./utils";
 import { hsv, rgb } from "./convert";
 
 function useHSV (
