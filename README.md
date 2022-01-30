@@ -1,9 +1,9 @@
-# Colr.js 🎨
+# Colormath.js 🎨
 
-Colr.js is a [color conversion](#conversion-methods) and [color manipulation](#manipulation-methods) library written in typescript for Node.js, Deno and Browser.
+Colormath.js is a [color conversion](#conversion-methods) and [color manipulation](#manipulation-methods) library written in typescript for Node.js, Deno and Browser.
 
 ```js
-const colors = require('colr.js');
+const colors = require('colormath.js');
 
 console.log(colors.rgb.toHex([255, 255, 255])); // '#ffffff'
 console.log(colors.hex.toRgb('fff')); // [255, 255, 255]
@@ -11,22 +11,22 @@ console.log(colors.hex.toRgb('fff')); // [255, 255, 255]
 
 ## Installation
 
-Using colr.js through Node.js
+Using colormath.js through Node.js
 
 ```js
-const colr.js = require('colr.js');
+const colormath.js = require('colormath.js');
 ```
 
-Using colr.js through Browser
+Using colormath.js through Browser
 
 ```html
-<script src="https://cdn.skypack.dev/colr.js@latest?min"></script>
+<script src="https://cdn.skypack.dev/colormath.js@latest?min"></script>
 ```
 
-Using colr.js through Deno
+Using colormath.js through Deno
 
 ```js
-import * as colors from 'https://cdn.skypack.dev/colr.js?dts';
+import * as colors from 'https://cdn.skypack.dev/colormath.js?dts';
 ```
 
 ## Examples
@@ -112,7 +112,7 @@ Only conversions which are used by people are added to the library and if you fe
 You can still perform sub conversions. For example, conversions like rgb to lch does not exist you can still perform conversions like rgb to lab to lch.
 
 ```js
-const colors = require('colr.js');
+const colors = require('colormath.js');
 const rgbToLch = (rgb) => colors.lab.toLch(colors.rgb.toLab(rgb));
 
 console.log(rgbToLch([255, 255, 255])); 
@@ -129,4 +129,4 @@ console.log(rgbToLch([255, 255, 255]));
 
 ## Help
 
-If any doubts, bugs, reports regarding the module or want to add a new conversion or a new color model you can create an [issue](https://github.com/scientific-dev/colr.js/issues) in github.
+If any doubts, bugs, reports regarding the module or want to add a new conversion or a new color model you can create an [issue](https://github.com/scientific-dev/colormath.js/issues) in github.
