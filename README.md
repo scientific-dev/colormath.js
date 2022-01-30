@@ -9,6 +9,26 @@ console.log(colors.rgb.toHex([255, 255, 255])); // '#ffffff'
 console.log(colors.hex.toRgb('fff')); // [255, 255, 255]
 ```
 
+## Installation
+
+Using colormath through Node.js
+
+```js
+const colormath = require('colormath');
+```
+
+Using colormath through Browser
+
+```html
+<script src="https://cdn.skypack.dev/colormath@latest?min"></script>
+```
+
+Using colormath through Deno
+
+```js
+import * as colors from 'https://cdn.skypack.dev/colormath?dts';
+```
+
 ## Supported Conversions
 
 These are supported color conversions from A to B suported by the library.
