@@ -33,7 +33,7 @@ import * as colors from 'https://cdn.skypack.dev/colormath?dts';
 
 ### Manipulation Methods
 
-Hex and Rgb are only supported for manipulation methods.s
+Hex and Rgb are only supported for manipulation methods.
 
 ```js
 // Invert a color
