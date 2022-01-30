@@ -11,10 +11,11 @@
         "build": "npx tsc --project tsconfig.json"
     },
     "keywords": [
+        "colormath",
+        "color",
         "colors",
         "colorsjs",
-        "colors.js",
-        "colormath"
+        "colors.js"
     ],
     "author": "science_spot_codes",
     "license": "MIT"
