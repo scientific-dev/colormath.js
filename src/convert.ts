@@ -353,15 +353,6 @@ export namespace hwb {
 	export function toRgb ([h, w, b]: number[]): number[] {
 		return hsl.toRgb([h, 100, 50]).map(v => v * (100 - w - b) / 100 + w) as number[];
 	}
-	
-	/**
-	 * Converts given hwb values into formatted hex string.
-	 * 
-	 * @param hsl The hwb values in the form of [h, w, b] array.
-	 */
-	export function toHex (hwb_: number[]): number[] {
-		return rgb.toHwb(hwb.toRgb(hwb_));
-	}
 
 }
 
