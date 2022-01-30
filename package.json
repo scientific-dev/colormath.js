@@ -1,5 +1,5 @@
 {
-    "name": "colorsjs",
+    "name": "colormath",
     "description": "A color conversion and color manipulation library written in typescript for Node.js, Deno and Browser.",
     "version": "1.0.0",
     "main": "./dist/index.js",

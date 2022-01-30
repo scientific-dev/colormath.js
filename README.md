@@ -2,6 +2,13 @@
 
 Colormath is a color conversion and color manipulation library written in typescript for Node.js, Deno and Browser.
 
+```js
+const colors = require('colormath');
+
+console.log(colors.rgb.toHex([255, 255, 255])); // '#ffffff'
+console.log(colors.hex.toRgb('fff')); // [255, 255, 255]
+```
+
 ## Supported Conversions
 
 These are supported color conversions from A to B suported by the library.
@@ -25,3 +32,14 @@ These are supported color conversions from A to B suported by the library.
 
 - ✔ means the color conversion is supported.
 - ❌ means the color conversion is not supported.
+
+## Things to be added
+
+- Support for `alpha` and string conversions.
+- Find a better way to do `ColorResult`.
+- Extracting colors from images.
+- More color manipulation methods.
+
+## Help
+
+If any doubts, bugs or reports regarding the module or the documentation you can create an [issue](https://github.com/scientific-dev/colormath/issues) in github.
