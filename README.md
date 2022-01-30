@@ -36,21 +36,46 @@ import * as colors from 'https://cdn.skypack.dev/colormath?dts';
 Hex and Rgb are only supported for manipulation methods.s
 
 ```js
-console.log(colors.invert([114, 152, 218]).rgb); // [141, 103, 37]
-console.log(colors.invert('#7298da'))            // #8d6725
+// Invert a color
+colors.invert([114, 152, 218]).rgb;                   // [141, 103, 37]
+colors.invert('#7298da').hex;                         // #8d6725
+
+// Rotate the hue of the color.
+colors.hue([114, 152, 218], 45).rgb;                  // [154.1, 114, 218]
+
+// Returns the complement of a color.
+colors.complement([114, 152, 218]).rgb;               // [218, 804.1, 114]
+
+// Saturates a color.
+colors.saturate([114, 152, 218], 20).rgb;             // [0, 79.6, 218]
+
+// Desaturates a color.
+colors.desaturate([114, 152, 218], 20).rgb;           // [218, 114, 114]
+
+// Grayscales a color.
+colors.grayscale([114, 152, 218]).rgb;                // [114, 152, 218]
+
+// Mix colors
+colors.mixColor([114, 152, 218], [255, 255, 255]).rgb // [184.5, 203.5, 236.5]
+
+// Lighens a color.
+colors.lighten([114, 152, 218], 20).rgb;              // [165, 203, 255]
+
+// Darkens a color.
+colors.darken([114, 152, 218], 20).rgb;               // [63, 101, 167]
 ```
 
 ### Conversion Methods
 
 ```js
 // Converts rgb to hex
-console.log(colors.rgb.toHex([255, 255, 255])); // '#ffffff'
+colors.rgb.toHex([255, 255, 255]); // '#ffffff'
 
 // Converts hex to rgb
-console.log(colors.hex.toRgb('fff'));           // [255, 255, 255]
+colors.hex.toRgb('fff');           // [255, 255, 255]
 
 // Converts hsl to rgb
-console.log(colors.hsl.toRgb([218, 58, 65]));   // [114, 151.9, 217.5]
+colors.hsl.toRgb([218, 58, 65]);   // [114, 151.9, 217.5]
 ```
 
 ### Supported Conversions
