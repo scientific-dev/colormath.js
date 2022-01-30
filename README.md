@@ -1,6 +1,6 @@
 # Colormath 🎨
 
-Colormath is a color conversion and color manipulation library written in typescript for Node.js, Deno and Browser.
+Colormath is a [color conversion](#conversion-methods) and [color manipulation](#manipulation-methods) library written in typescript for Node.js, Deno and Browser.
 
 ```js
 const colors = require('colormath');
@@ -67,6 +67,8 @@ colors.darken([114, 152, 218], 20).rgb;               // [63, 101, 167]
 
 ### Conversion Methods
 
+The color models or formats supported by the library are `hex`, `rgb`, `hsv`, `hsl`, `hwb`, `cmyk`, `xyz`, `lab`, `lch`, `ansi16`, `ansi256` and `gray`.
+
 ```js
 // Converts rgb to hex
 colors.rgb.toHex([255, 255, 255]); // '#ffffff'
@@ -76,6 +78,9 @@ colors.hex.toRgb('fff');           // [255, 255, 255]
 
 // Converts hsl to rgb
 colors.hsl.toRgb([218, 58, 65]);   // [114, 151.9, 217.5]
+
+// Converts grayscale to rgb
+colors.gray.toRgb(100)             // [255, 255, 255]
 ```
 
 ### Supported Conversions
