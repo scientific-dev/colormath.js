@@ -1,6 +1,6 @@
 {
     "name": "colorsjs",
-    "description": "A javascript library to work with colors for Node.js, Deno and for browser.",
+    "description": "A color conversion and color manipulation library written in typescript for Node.js, Deno and Browser.",
     "version": "1.0.0",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -13,7 +13,8 @@
     "keywords": [
         "colors",
         "colorsjs",
-        "colors.js"
+        "colors.js",
+        "colormath"
     ],
     "author": "science_spot_codes",
     "license": "MIT"

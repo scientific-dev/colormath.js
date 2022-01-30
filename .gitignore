@@ -3,3 +3,5 @@ dist/
 package-lock.json
 test.js
 indent.js
+table.md
+generateTable.js
