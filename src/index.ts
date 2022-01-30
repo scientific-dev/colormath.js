@@ -1,3 +1,13 @@
 export * from './convert';
 export * from './methods';
-export * from './utils';
+
+export {
+    ColorValue,
+    ColorResult,
+    rawHex,
+    formatHex,
+    breakHex,
+    padHex,
+    random,
+    randomHex
+} from './utils';

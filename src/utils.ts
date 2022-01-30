@@ -14,10 +14,19 @@ export const RGB = (x: ColorValue) =>
  */
 export const RANDOM = m => Math.floor(Math.random() * m);
 
+/**
+ * A color result object returned by functions in "methods.ts".
+ * 
+ * The main purpose of this function is to allow hex conversion for the rgb
+ * array returned.
+ */
 export class ColorResult {	
 
 	constructor (public rgb: number[]) {}
 
+	/**
+	 * Converts rgb values into hex string.
+	 */
 	get hex () {
 		return rgbToHex(this.rgb);
 	}
