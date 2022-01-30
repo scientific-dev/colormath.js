@@ -71,16 +71,16 @@ The color models or formats supported by the library are `hex`, `rgb`, `hsv`, `h
 
 ```js
 // Converts rgb to hex
-colors.rgb.toHex([255, 255, 255]); // '#ffffff'
+colors.rgb.toHex([255, 255, 255]);                   // '#ffffff'
 
 // Converts hex to rgb
-colors.hex.toRgb('fff');           // [255, 255, 255]
+colors.hex.toRgb('fff');                             // [255, 255, 255]
 
 // Converts hsl to rgb
-colors.hsl.toRgb([218, 58, 65]);   // [114, 151.9, 217.5]
+colors.hsl.toRgb([218, 58, 65]);                     // [114, 151.9, 217.5]
 
 // Converts grayscale to rgb
-colors.gray.toRgb(100)             // [255, 255, 255]
+colors.gray.toRgb(100)                               // [255, 255, 255]
 ```
 
 ### Supported Conversions
