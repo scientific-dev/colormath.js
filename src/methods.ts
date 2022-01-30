@@ -2,13 +2,13 @@ import { RGB, ColorValue, hexToRgb, ColorResult } from "./utils";
 import { hsv, rgb } from "./convert";
 
 function useHSV (
-    color: ColorValue,
-    fn: (hsv: number[]) => void
+	color: ColorValue,
+	fn: (hsv: number[]) => void
 ): ColorResult {
-    let result = rgb.toHsv(typeof color == "string" ? hexToRgb(color) : color);
-    fn(result);
+	let result = rgb.toHsv(typeof color == "string" ? hexToRgb(color) : color);
+	fn(result);
 
-    return new ColorResult(hsv.toRgb(result));
+	return new ColorResult(hsv.toRgb(result));
 }
 
 /**
@@ -17,8 +17,8 @@ function useHSV (
  * @param color The [r, g, b] array or hex string.
  */
 export function invert (color: ColorValue): ColorResult {
-    let [r, g, b] = RGB(color);
-    return new ColorResult([255 - r, 255 - g, 255 - b]);
+	let [r, g, b] = RGB(color);
+	return new ColorResult([255 - r, 255 - g, 255 - b]);
 }
 
 /**
@@ -28,8 +28,8 @@ export function invert (color: ColorValue): ColorResult {
  * @param value The degree the hue variable to be rotated. Value ranges from 0 to 360. Default value is 30.
  */
 export function hue (color: ColorValue, value = 30): ColorResult {
-    if (value > 360) value %= 360;
-    return useHSV(color, hsv => hsv[0] += value);
+	if (value > 360) value %= 360;
+	return useHSV(color, hsv => hsv[0] += value);
 }
 
 /**
@@ -38,7 +38,7 @@ export function hue (color: ColorValue, value = 30): ColorResult {
  * @param color The [r, g, b] array or hex string.
  */
 export function complement (color: ColorValue): ColorResult {
-    return hue(color, 180);
+	return hue(color, 180);
 }
 
 /**
@@ -48,8 +48,8 @@ export function complement (color: ColorValue): ColorResult {
  * @param value The saturation amount. Value ranges from 0.0 to 1.0. Default value is 0.5.
  */
 export function saturate (color: ColorValue, value = 0.5): ColorResult {
-    if (value > 1) value = 1;
-    return useHSV(color, hsv => hsv[1] += (100 - hsv[1]) * value);
+	if (value > 1) value = 1;
+	return useHSV(color, hsv => hsv[1] += (100 - hsv[1]) * value);
 }
 
 /**
@@ -59,8 +59,8 @@ export function saturate (color: ColorValue, value = 0.5): ColorResult {
  * @param value The desaturation amount. Value ranges from 0.0 to 1.0. Default value is 0.5.
  */
 export function desaturate (color: ColorValue, value = 0.5): ColorResult {
-    if (value > 1) value = 1;
-    return useHSV(color, hsv => hsv[0] -= hsv[0] * value);
+	if (value > 1) value = 1;
+	return useHSV(color, hsv => hsv[0] -= hsv[0] * value);
 }
 
 /**
@@ -69,7 +69,7 @@ export function desaturate (color: ColorValue, value = 0.5): ColorResult {
  * @param color The [r, g, b] array or hex string.
  */
 export function grayscale (color: ColorValue): ColorResult {
-    return desaturate(color, 0);
+	return desaturate(color, 0);
 }
 
 /**

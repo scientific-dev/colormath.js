@@ -6,17 +6,17 @@ function fixedFloat (num: number): number {
 
 export namespace hex {
 
-    /**
-     * Maximum hex value in the #rrggbb format.
-     */
-    export const HEX_MAX = 0xffffff;
+	/**
+	 * Maximum hex value in the #rrggbb format.
+	 */
+	export const HEX_MAX = 0xffffff;
 
 	/**
 	 * Directly exporting as a utility function.
 	 */
 	export const toRgb = hexToRgb;
 
-    /**
+	/**
 	 * Converts a hexadecimal number to hex string.
 	 * 
 	 * @param num The hexadecimal number.
@@ -128,14 +128,14 @@ export namespace rgb {
 		return [f(c), f(m), f(y), fixedFloat(k * 255)];
 	}
 
-    /**
-     * Converts a given rgb array into ansi 16 code.
-     * 
-     * @param param0 The rgb values in the form of [r, g, b] array.
-     * @param value The value. Optional.
-     * @example
-     * rgb.toAnsi16([255, 0, 0]); // 91
-     */
+	/**
+	 * Converts a given rgb array into ansi 16 code.
+	 * 
+	 * @param param0 The rgb values in the form of [r, g, b] array.
+	 * @param value The value. Optional.
+	 * @example
+	 * rgb.toAnsi16([255, 0, 0]); // 91
+	 */
 	export function toAnsi16 ([r, g, b]: number[], value: number | null = null): number {
 		value = Math.round((typeof value == "number" ? value : toHsv([r, g, b])[2]) / 50);
 		if (!value) return 30;
@@ -146,13 +146,13 @@ export namespace rgb {
 		return ansi;
 	}
 
-    /**
-     * Converts a given rgb array into ansi 256 code.
-     * 
-     * @param param0 The rgb values in the form of [r, g, b] array.
-     * @example
-     * rgb.toAnsi256([255, 0, 0]); // 196
-     */
+	/**
+	 * Converts a given rgb array into ansi 256 code.
+	 * 
+	 * @param param0 The rgb values in the form of [r, g, b] array.
+	 * @example
+	 * rgb.toAnsi256([255, 0, 0]); // 196
+	 */
 	export function toAnsi256 ([r, g, b]: number[]): number {
 		if (r >> 4 === g >> 4 && g >> 4 === b >> 4) {
 			if (r < 8) return 16;
@@ -349,13 +349,13 @@ export namespace hsl {
 
 export namespace hwb {
 
-    /**
-     * Converts given hwb values into rgb values.
+	/**
+	 * Converts given hwb values into rgb values.
 	 * 
-     * @param param0 The hwb values in the form of [h, w, b] array.
-     */
+	 * @param param0 The hwb values in the form of [h, w, b] array.
+	 */
 	export function toRgb ([h, w, b]: number[]): number[] {
-        return hsl.toRgb([h, 100, 50]).map(v => v * (100 - w - b) / 100 + w) as number[];
+		return hsl.toRgb([h, 100, 50]).map(v => v * (100 - w - b) / 100 + w) as number[];
 	}
 	
 	/**
@@ -500,13 +500,13 @@ export namespace lch {
 
 export namespace ansi16 {
 
-    /**
-     * Converts an ansi16 code to rgb values.
-     * 
-     * @param n The ansi16 code.
-     * @example
-     * ansi16.toRgb(91); // [255, 0, 0]
-     */
+	/**
+	 * Converts an ansi16 code to rgb values.
+	 * 
+	 * @param n The ansi16 code.
+	 * @example
+	 * ansi16.toRgb(91); // [255, 0, 0]
+	 */
 	export function toRgb (n: number): number[] {
 		let color = n % 10;
 		
@@ -529,13 +529,13 @@ export namespace ansi16 {
 
 export namespace ansi256 {
 
-    /**
-     * Converts an ansi256 code to rgb values.
-     * 
-     * @param n The ansi256 code.
-     * @example
-     * ansi256.toRgb(196); // [255, 0, 0]
-     */
+	/**
+	 * Converts an ansi256 code to rgb values.
+	 * 
+	 * @param n The ansi256 code.
+	 * @example
+	 * ansi256.toRgb(196); // [255, 0, 0]
+	 */
 	export function toRgb (n: number): number[] {
 		if (n >= 232) {
 			let color = (n - 232) * 10 + 8;
