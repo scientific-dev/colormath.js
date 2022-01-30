@@ -1,15 +1,15 @@
 {
-    "name": "colormath",
+    "name": "colr.js",
     "description": "A color conversion and color manipulation library written in typescript for Node.js, Deno and Browser.",
     "version": "1.0.0",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com/scientific-dev/colormath"
+        "url": "https://github.com/scientific-dev/colr.js"
     },
-    "homepage": "https://github.com/scientific-dev/colormath#readme",
-    "readme": "https://github.com/scientific-dev/colormath#readme",
+    "homepage": "https://github.com/scientific-dev/colr.js#readme",
+    "readme": "https://github.com/scientific-dev/colr.js#readme",
     "dependencies": {
     },
     "scripts": {
@@ -17,7 +17,7 @@
         "build": "npx tsc --project tsconfig.json"
     },
     "keywords": [
-        "colormath",
+        "colr.js",
         "color",
         "colors",
         "colorsjs",
