@@ -4,9 +4,9 @@ Colormath is a color conversion and color manipulation library written in typesc
 
 ## Supported Conversions
 
-These are supported color conversions suported by the library.
+These are supported color conversions from A to B suported by the library.
 
-| ⬇ A  B ➡  | rgb | hex | hsv | hsl | hwb | lab | lch | xyz | cmyk | ansi16 | ansi256 |
+| ⬇ A \ B ➡  | rgb | hex | hsv | hsl | hwb | lab | lch | xyz | cmyk | ansi16 | ansi256 |
 |---------|-----|-----|-----|-----|-----|-----|-----|-----|------|--------|---------|
 | rgb |  | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ✔ | ✔ | ✔ | ✔ |
 | hex | ✔ |  | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
