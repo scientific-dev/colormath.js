@@ -31,11 +31,18 @@ import * as colors from 'https://cdn.skypack.dev/colormath?dts';
 
 ## Examples
 
-### Conversions
+### Manipulation Methods
+
+Hex and Rgb are only supported for manipulation methods.s
 
 ```js
-const colors = require('colormath');
+console.log(colors.invert([114, 152, 218]).rgb); // [141, 103, 37]
+console.log(colors.invert('#7298da'))            // #8d6725
+```
 
+### Conversion Methods
+
+```js
 // Converts rgb to hex
 console.log(colors.rgb.toHex([255, 255, 255])); // '#ffffff'
 
@@ -92,4 +99,4 @@ console.log(rgbToLch([255, 255, 255]));
 
 ## Help
 
-If any doubts, bugs or reports regarding the module or the documentation you can create an [issue](https://github.com/scientific-dev/colormath/issues) in github.
+If any doubts, bugs, reports regarding the module or want to add a new conversion or a new color model you can create an [issue](https://github.com/scientific-dev/colormath/issues) in github.
