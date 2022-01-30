@@ -1,0 +1,20 @@
+{
+    "name": "colorsjs",
+    "description": "A javascript library to work with colors for Node.js, Deno and for browser.",
+    "version": "1.0.0",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "dependencies": {
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "npx tsc --project tsconfig.json"
+    },
+    "keywords": [
+        "colors",
+        "colorsjs",
+        "colors.js"
+    ],
+    "author": "science_spot_codes",
+    "license": "MIT"
+}

@@ -1,0 +1,5 @@
+dist/
+*.txt
+package-lock.json
+test.js
+indent.js
