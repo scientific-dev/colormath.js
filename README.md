@@ -6,10 +6,12 @@ Colormath is a color conversion and color manipulation library written in typesc
 
 These are supported color conversions from A to B suported by the library.
 
+> Only conversions which are used by people are added to the library and if you feel some color conversions are useless then you can create an issue or create a pr if you are able to add it yourself.
+
 | ⬇ A \ B ➡  | rgb | hex | hsv | hsl | hwb | lab | lch | xyz | cmyk | ansi16 | ansi256 |
 |---------|-----|-----|-----|-----|-----|-----|-----|-----|------|--------|---------|
 | rgb |  | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ✔ | ✔ | ✔ | ✔ |
-| hex | ✔ |  | 🇴 | 🇴 | 🇴 | 🇴 | 🇴 | 🇴 | 🇴 | 🇴 | 🇴 |
+| hex | ✔ |  | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | hsv | ✔ | ✔ |  | ✔ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | hsl | ✔ | ✔ | ✔ |  | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | hwb | ✔ | ✔ | ❌ | ❌ |  | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
