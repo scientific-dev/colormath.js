@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.gray = exports.ansi256 = exports.ansi16 = exports.lch = exports.lab = exports.xyz = exports.cmyk = exports.hwb = exports.hsl = exports.hsv = exports.rgb = exports.hex = void 0;
+exports.apple = exports.gray = exports.ansi256 = exports.ansi16 = exports.lch = exports.lab = exports.xyz = exports.cmyk = exports.hwb = exports.hsl = exports.hsv = exports.rgb = exports.hex = void 0;
 const utils_1 = require("./utils");
 var hex;
 (function (hex_1) {
@@ -212,6 +212,13 @@ var rgb;
         return (0, utils_1.fixedFloat)((r + g + b) / 765 * 100);
     }
     rgb_1.toGray = toGray;
+    function toApple([r, g, b]) {
+        const a = (r / 255) * 65535;
+        const x = (g / 255) * 65535;
+        const c = (b / 255) * 65535;
+        return [a, x, c];
+    }
+    rgb_1.toApple = toApple;
 })(rgb = exports.rgb || (exports.rgb = {}));
 var hsv;
 (function (hsv_1) {
@@ -522,4 +529,48 @@ var gray;
         return [x, x, x];
     }
     gray_1.toRgb = toRgb;
+    function toHsl(gray) {
+        return [0, 0, gray];
+    }
+    gray_1.toHsl = toHsl;
+    function toHsv(gray) {
+        return [0, 0, gray / 100];
+    }
+    gray_1.toHsv = toHsv;
+    function toHwb(gray) {
+        return [0, 100, gray];
+    }
+    gray_1.toHwb = toHwb;
+    function toCmyx(gray) {
+        return [0, 0, 0, gray];
+    }
+    gray_1.toCmyx = toCmyx;
+    function toLab(gray) {
+        return [gray, 0, 0];
+    }
+    gray_1.toLab = toLab;
+    function toHex(gray) {
+        const value = Math.round(gray / 100 * 255) & 0xFF;
+        const int = (value << 16) + (value << 8) + value;
+        const string = int.toString(16);
+        return "000000".substring(string.length) + string.toUpperCase();
+    }
+    gray_1.toHex = toHex;
 })(gray = exports.gray || (exports.gray = {}));
+var apple;
+(function (apple) {
+    /**
+     * Converts apple code color to rgb values in form of [r, g, b] array.
+     *
+     * @param apple code color
+     * @example
+     * apple.toRgb([65535, 65535, 65535])
+     */
+    function toRgb([r, g, b]) {
+        const newR = (r / 65535) * 255;
+        const newG = (g / 65535) * 255;
+        const newB = (b / 65535) * 255;
+        return [newR, newG, newB];
+    }
+    apple.toRgb = toRgb;
+})(apple = exports.apple || (exports.apple = {}));

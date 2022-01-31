@@ -110,6 +110,7 @@ export declare namespace rgb {
      * rgb.toGray([255, 255, 255]); // 100
      */
     function toGray([r, g, b]: number[]): number;
+    function toApple([r, g, b]: number[]): number[];
 }
 export declare namespace hsv {
     /**
@@ -262,4 +263,20 @@ export declare namespace gray {
      * gray.toRgb(100); // [255, 255, 255]
      */
     function toRgb(gray: number): number[];
+    function toHsl(gray: number): number[];
+    function toHsv(gray: number): number[];
+    function toHwb(gray: number): number[];
+    function toCmyx(gray: number): number[];
+    function toLab(gray: number): number[];
+    function toHex(gray: number): string;
+}
+export declare namespace apple {
+    /**
+     * Converts apple code color to rgb values in form of [r, g, b] array.
+     *
+     * @param apple code color
+     * @example
+     * apple.toRgb([65535, 65535, 65535])
+     */
+    function toRgb([r, g, b]: number[]): number[];
 }
