@@ -67,7 +67,7 @@ colors.darken([114, 152, 218], 20).rgb;               // [63, 101, 167]
 
 ### Conversion Methods
 
-The color models or formats supported by the library are `hex`, `rgb`, `hsv`, `hsl`, `hwb`, `cmyk`, `xyz`, `lab`, `lch`, `ansi16`, `ansi256` and `gray`.
+The color models or formats supported by the library are `hex`, `rgb`, `hsv`, `hsl`, `hwb`, `cmyk`, `xyz`, `lab`, `lch`, `ansi16`, `ansi256`, `gray` and `apple`.
 
 ```js
 // Converts rgb to hex
@@ -89,21 +89,21 @@ These are supported color conversions from A to B suported by the library.
 
 Only conversions which are used by people are added to the library and if you feel some of the unavailable color conversions are useful then you can create an issue or create a pr if you are able to add it yourself.
 
-| ⬇ A \ B ➡ | rgb | hex | hsv | hsl | hwb | lab | lch | xyz | cmyk | ansi16 | ansi256 | gray | apple |
-|-----------|-----|-----|-----|-----|-----|-----|-----|-----|-------|--------|---------|------|-------|
-| rgb       |     | ✔  | ✔   | ✔   | ✔   | ✔  | ❌ | ✔   | ✔    | ✔      | ✔       | ✔    | ✔    |
-| hex       | ✔  |     | ❌ | ❌ | ❌   | ✔  | ❌ | ❌  | ❌   | ❌     | ❌      | ❌   | ❌   |
-| hsv       | ✔  | ✔  |     | ✔  | ❌   | ❌  | ❌ | ❌  | ❌   | ❌     | ❌      | ❌   | ❌   |
-| hsl       | ✔  | ✔  | ✔  |     | ❌   | ❌  | ❌ | ❌  | ❌   | ❌     | ❌      | ❌   | ❌   |
-| hwb       | ❌ | ✔  | ❌ | ❌ |       | ❌  | ❌ | ❌  | ❌   | ❌     | ❌      | ❌   | ❌   |
-| lab       | ✔  | ❌ | ❌ | ❌ | ❌   |      | ✔  | ✔   | ❌   | ❌     | ❌      | ❌   | ❌   |
-| lch       | ❌ | ❌ | ❌ | ❌ | ❌   | ✔   |     | ❌  | ❌   | ❌     | ❌      | ❌   | ❌   |
-| xyz       | ✔  | ❌ | ❌ | ❌ | ❌   | ✔   | ❌  |     | ❌   | ❌     | ❌      | ❌   | ❌   |
-| cmyk      | ✔  | ✔  | ❌ | ❌ | ❌   | ❌  | ❌  | ❌  |      | ❌     | ❌      | ❌   | ❌   |
-| ansi16    | ✔  | ❌ | ❌ | ❌ | ❌   | ❌  | ❌  | ❌  | ❌  |         | ❌      | ❌   | ❌   |
-| ansi256   | ✔  | ❌ | ❌ | ❌ | ❌   | ❌  | ❌  | ❌  | ❌  | ❌     |          | ❌   | ❌   |
-| gray      | ✔  | ✔ | ✔  | ✔   | ✔    | ✔   | ❌  | ❌  | ✔  | ❌      | ❌      |       | ❌   |
-| apple     | ✔  | ❌ | ❌ | ❌ | ❌   | ❌  | ❌  | ❌  | ❌  | ❌     | ❌      | ❌   |       |
+| ⬇ A \ B ➡  | rgb | hex | hsv | hsl | hwb | lab | lch | xyz | cmyk | ansi16 | ansi256 | gray | apple |
+|---------|-----|-----|-----|-----|-----|-----|-----|-----|------|--------|---------|------|-------|
+| rgb |  | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| hex | ✔ |  | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| hsv | ✔ | ✔ |  | ✔ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| hsl | ✔ | ✔ | ✔ |  | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| hwb | ❌ | ✔ | ❌ | ❌ |  | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| lab | ✔ | ❌ | ❌ | ❌ | ❌ |  | ✔ | ✔ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| lch | ❌ | ❌ | ❌ | ❌ | ❌ | ✔ |  | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| xyz | ✔ | ❌ | ❌ | ❌ | ❌ | ✔ | ❌ |  | ❌ | ❌ | ❌ | ❌ | ❌ |
+| cmyk | ✔ | ✔ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |  | ❌ | ❌ | ❌ | ❌ |
+| ansi16 | ✔ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |  | ❌ | ❌ | ❌ |
+| ansi256 | ✔ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |  | ❌ | ❌ |
+| gray | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ✔ | ❌ | ❌ |  | ❌ |
+| apple | ✔ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |  |
 
 - ✔ means the color conversion is supported.
 - ❌ means the color conversion is not supported.
