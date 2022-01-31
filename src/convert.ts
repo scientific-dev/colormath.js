@@ -558,7 +558,7 @@ export namespace gray {
 	export const toHsl: To = n => [0, 0, n];
 	export const toHsv: To = n => [0, 0, n];
 	export const toHwb: To = n => [0, 100, n];
-	export const toCmyk: To = n => [0, 0, 0, n];
+	export const toCmyk: To = n => [0, 0, 0, 100 - n];
 	export const toLab: To = n => [n, 0, 0];
 
 	/**

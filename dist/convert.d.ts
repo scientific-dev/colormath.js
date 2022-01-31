@@ -110,7 +110,14 @@ export declare namespace rgb {
      * rgb.toGray([255, 255, 255]); // 100
      */
     function toGray([r, g, b]: number[]): number;
-    function toApple([r, g, b]: number[]): number[];
+    /**
+     * Converts rgb values into apple color model.
+     *
+     * @param rgb The rgb values in the form of [r, g, b] array.
+     * @example
+     * rgb.toApple([255, 255, 255]); // [65535, 65535, 65535]
+     */
+    function toApple(rgb: number[]): number[];
 }
 export declare namespace hsv {
     /**
@@ -255,6 +262,12 @@ export declare namespace ansi256 {
     function toRgb(n: number): number[];
 }
 export declare namespace gray {
+    type To = (n: number) => number[];
+    export const toHsl: To;
+    export const toHsv: To;
+    export const toHwb: To;
+    export const toCmyk: To;
+    export const toLab: To;
     /**
      * Converts grayscale percentage to rgb values in the form of [r, g, b] array.
      *
@@ -262,21 +275,24 @@ export declare namespace gray {
      * @example
      * gray.toRgb(100); // [255, 255, 255]
      */
-    function toRgb(gray: number): number[];
-    function toHsl(gray: number): number[];
-    function toHsv(gray: number): number[];
-    function toHwb(gray: number): number[];
-    function toCmyx(gray: number): number[];
-    function toLab(gray: number): number[];
-    function toHex(gray: number): string;
+    export function toRgb(gray: number): number[];
+    /**
+     * Converts grayscale percentage to hex string.
+     *
+     * @param gray The gray scale percentage.
+     * @example
+     * gray.toHex(255); // '#ffffff'
+     */
+    export function toHex(gray: number): string;
+    export {};
 }
 export declare namespace apple {
     /**
      * Converts apple code color to rgb values in form of [r, g, b] array.
      *
-     * @param apple code color
+     * @param apple The apple color model.
      * @example
-     * apple.toRgb([65535, 65535, 65535])
+     * apple.toRgb([65535, 65535, 65535]); // [255, 255, 255]
      */
-    function toRgb([r, g, b]: number[]): number[];
+    function toRgb(rgb: number[]): number[];
 }

@@ -212,11 +212,15 @@ var rgb;
         return (0, utils_1.fixedFloat)((r + g + b) / 765 * 100);
     }
     rgb_1.toGray = toGray;
-    function toApple([r, g, b]) {
-        const a = (r / 255) * 65535;
-        const x = (g / 255) * 65535;
-        const c = (b / 255) * 65535;
-        return [a, x, c];
+    /**
+     * Converts rgb values into apple color model.
+     *
+     * @param rgb The rgb values in the form of [r, g, b] array.
+     * @example
+     * rgb.toApple([255, 255, 255]); // [65535, 65535, 65535]
+     */
+    function toApple(rgb) {
+        return rgb.map(n => (0, utils_1.fixedFloat)((n / 255) * 65535));
     }
     rgb_1.toApple = toApple;
 })(rgb = exports.rgb || (exports.rgb = {}));
@@ -517,6 +521,11 @@ var ansi256;
 })(ansi256 = exports.ansi256 || (exports.ansi256 = {}));
 var gray;
 (function (gray_1) {
+    gray_1.toHsl = n => [0, 0, n];
+    gray_1.toHsv = n => [0, 0, n];
+    gray_1.toHwb = n => [0, 100, n];
+    gray_1.toCmyk = n => [0, 0, 0, n];
+    gray_1.toLab = n => [n, 0, 0];
     /**
      * Converts grayscale percentage to rgb values in the form of [r, g, b] array.
      *
@@ -529,26 +538,13 @@ var gray;
         return [x, x, x];
     }
     gray_1.toRgb = toRgb;
-    function toHsl(gray) {
-        return [0, 0, gray];
-    }
-    gray_1.toHsl = toHsl;
-    function toHsv(gray) {
-        return [0, 0, gray / 100];
-    }
-    gray_1.toHsv = toHsv;
-    function toHwb(gray) {
-        return [0, 100, gray];
-    }
-    gray_1.toHwb = toHwb;
-    function toCmyx(gray) {
-        return [0, 0, 0, gray];
-    }
-    gray_1.toCmyx = toCmyx;
-    function toLab(gray) {
-        return [gray, 0, 0];
-    }
-    gray_1.toLab = toLab;
+    /**
+     * Converts grayscale percentage to hex string.
+     *
+     * @param gray The gray scale percentage.
+     * @example
+     * gray.toHex(255); // '#ffffff'
+     */
     function toHex(gray) {
         let value = Math.round(gray / 100 * 255) & 0xFF;
         return hex.fromInt((value << 16) + (value << 8) + value);
@@ -560,15 +556,12 @@ var apple;
     /**
      * Converts apple code color to rgb values in form of [r, g, b] array.
      *
-     * @param apple code color
+     * @param apple The apple color model.
      * @example
-     * apple.toRgb([65535, 65535, 65535])
+     * apple.toRgb([65535, 65535, 65535]); // [255, 255, 255]
      */
-    function toRgb([r, g, b]) {
-        const newR = (r / 65535) * 255;
-        const newG = (g / 65535) * 255;
-        const newB = (b / 65535) * 255;
-        return [newR, newG, newB];
+    function toRgb(rgb) {
+        return rgb.map(n => (0, utils_1.fixedFloat)((n / 65535) * 255));
     }
     apple.toRgb = toRgb;
 })(apple = exports.apple || (exports.apple = {}));
