@@ -550,10 +550,8 @@ var gray;
     }
     gray_1.toLab = toLab;
     function toHex(gray) {
-        const value = Math.round(gray / 100 * 255) & 0xFF;
-        const int = (value << 16) + (value << 8) + value;
-        const string = int.toString(16);
-        return "000000".substring(string.length) + string.toUpperCase();
+        let value = Math.round(gray / 100 * 255) & 0xFF;
+        return hex.fromInt((value << 16) + (value << 8) + value);
     }
     gray_1.toHex = toHex;
 })(gray = exports.gray || (exports.gray = {}));

@@ -572,7 +572,7 @@ export namespace gray {
 		return [0, 100, gray]
 	}
 
-	export function toCmyx (gray: number): number[] {
+	export function toCmyk (gray: number): number[] {
 		return [0, 0, 0, gray]
 	}
 
@@ -580,16 +580,22 @@ export namespace gray {
 		return [gray, 0, 0]
 	}
 
+	/**
+	 * Converts grayscale percentage to hex string.
+	 * 
+	 * @param gray The gray scale percentage.
+	 * @example
+	 * gray.toHex(255); // '#ffffff'
+	 */
 	export function toHex (gray: number): string {
-		const value = Math.round(gray / 100 * 255) & 0xFF
-		const int = (value << 16) + (value << 8) + value
-		const string = int.toString(16)
-
-		return "000000".substring(string.length) + string.toUpperCase()
+		let value = Math.round(gray / 100 * 255) & 0xFF;
+		return hex.fromInt((value << 16) + (value << 8) + value);
 	}
+	
 }
 
 export namespace apple {
+
 	/**
 	 * Converts apple code color to rgb values in form of [r, g, b] array.
 	 *
@@ -603,4 +609,5 @@ export namespace apple {
 		const newB = (b / 65535) * 255
 		return [newR, newG, newB]
 	}
+
 }
