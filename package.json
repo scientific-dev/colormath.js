@@ -10,11 +10,9 @@
     },
     "homepage": "https://github.com/scientific-dev/colormath.js#readme",
     "readme": "https://github.com/scientific-dev/colormath.js#readme",
-    "dependencies": {
-    },
     "scripts": {
         "test": "node test.js",
-        "build": "npx tsc --project tsconfig.json"
+        "build": "npx tsup"
     },
     "keywords": [
         "colormath.js",
@@ -25,5 +23,9 @@
         "colors.js"
     ],
     "author": "science_spot_codes",
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "tsup": "^5.11.13",
+        "typescript": "^4.5.5"
+    }
 }

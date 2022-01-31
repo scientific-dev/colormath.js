@@ -5,3 +5,4 @@ indent.js
 table.md
 generateTable.js
 src/
+node_modules/
