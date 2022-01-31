@@ -1,7 +1,7 @@
 {
     "name": "colormath.js",
     "description": "A color conversion and color manipulation library written in typescript for Node.js, Deno and Browser.",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "repository": {

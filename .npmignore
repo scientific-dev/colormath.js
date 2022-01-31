@@ -6,3 +6,5 @@ table.md
 generateTable.js
 src/
 node_modules/
+tsup.config.js
+mod.ts
