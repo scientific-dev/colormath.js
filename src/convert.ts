@@ -226,12 +226,17 @@ export namespace rgb {
 		return fixedFloat((r + g + b) / 765 * 100);
 	}
 
-	export function toApple ([r, g, b]: number[]): number[] {
-		const a = (r / 255) * 65535
-		const x = (g / 255) * 65535
-		const c = (b / 255) * 65535
-		return [a, x, c]
+	/**
+	 * Converts rgb values into apple color model.
+	 * 
+	 * @param rgb The rgb values in the form of [r, g, b] array.
+	 * @example
+	 * rgb.toApple([255, 255, 255]); // [65535, 65535, 65535]
+	 */
+	export function toApple (rgb: number[]): number[] {
+		return rgb.map(n => fixedFloat((n / 255) * 65535));
 	}
+
 }
 
 export namespace hsv {
@@ -548,6 +553,14 @@ export namespace ansi256 {
 
 export namespace gray {
 
+	type To = (n: number) => number[];
+
+	export const toHsl: To = n => [0, 0, n];
+	export const toHsv: To = n => [0, 0, n];
+	export const toHwb: To = n => [0, 100, n];
+	export const toCmyk: To = n => [0, 0, 0, n];
+	export const toLab: To = n => [n, 0, 0];
+
 	/**
 	 * Converts grayscale percentage to rgb values in the form of [r, g, b] array.
 	 *
@@ -558,26 +571,6 @@ export namespace gray {
 	export function toRgb (gray: number): number[] {
 		let x = fixedFloat(gray / 100 * 255);
 		return [x, x, x];
-	}
-
-	export function toHsl (gray: number): number[] {
-		return [0, 0, gray]
-	}
-
-	export function toHsv (gray: number): number[] {
-		return [0, 0, gray / 100]
-	}
-
-	export function toHwb (gray: number): number[] {
-		return [0, 100, gray]
-	}
-
-	export function toCmyk (gray: number): number[] {
-		return [0, 0, 0, gray]
-	}
-
-	export function toLab (gray: number): number[] {
-		return [gray, 0, 0]
 	}
 
 	/**
@@ -599,15 +592,12 @@ export namespace apple {
 	/**
 	 * Converts apple code color to rgb values in form of [r, g, b] array.
 	 *
-	 * @param apple code color
+	 * @param apple The apple color model.
 	 * @example
-	 * apple.toRgb([65535, 65535, 65535])
+	 * apple.toRgb([65535, 65535, 65535]); // [255, 255, 255]
 	 */
-	export function toRgb ([r, g, b]: number[]): number[] {
-		const newR = (r / 65535) * 255
-		const newG = (g / 65535) * 255
-		const newB = (b / 65535) * 255
-		return [newR, newG, newB]
+	export function toRgb (rgb: number[]): number[] {
+		return rgb.map(n => fixedFloat((n / 65535) * 255));
 	}
 
 }
