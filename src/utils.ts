@@ -6,7 +6,7 @@ export type ColorValue = number[] | string;
 /**
  * A lambda function to convert a ColorValue to rgb values.
  */
-export const RGB = (x: ColorValue) => 
+export const RGB = (x: ColorValue) =>
 	typeof x == "string" ? hexToRgb(x) : x as number[];
 
 /**
@@ -16,11 +16,11 @@ export const RANDOM = m => Math.floor(Math.random() * m);
 
 /**
  * A color result object returned by functions in "methods.ts".
- * 
+ *
  * The main purpose of this function is to allow hex conversion for the rgb
  * array returned.
  */
-export class ColorResult {	
+export class ColorResult {
 
 	constructor (public rgb: number[]) {}
 
@@ -39,7 +39,7 @@ export class ColorResult {
 
 /**
  * Extracts the raw hex from the hex string.
- * 
+ *
  * @param hex The hex
  * @example
  * rawHex('1dc'); // '11ddcc'
@@ -52,7 +52,7 @@ export function rawHex (hex: string): string {
 	if (hex.length >= 6) return hex.slice(0, 6);
 	else if (hex.length == 3) {
 		let fmt = "";
-		for (let i = 0; i < hex.length; i++) 
+		for (let i = 0; i < hex.length; i++)
 			fmt += `${hex[i]}${hex[i]}`;
 
 		return fmt;
@@ -61,7 +61,7 @@ export function rawHex (hex: string): string {
 
 /**
  * Formats the unformatted hex.
- * 
+ *
  * @param hex The hex.
  * @example
  * formatHex('1dc'); // '#11ddcc'
@@ -73,7 +73,7 @@ export function formatHex (hex: string): string {
 
 /**
  * Breaks down a raw hex into [r, g, b].
- * 
+ *
  * @param hex The hex.
  * @example
  * breakHex('ffffff'); // [255, 255, 255]
@@ -85,7 +85,7 @@ export function breakHex (hex: string): number[] {
 
 /**
  * Converts a rgb value to the component of hex.
- * 
+ *
  * @param x The value
  * @example
  * padHex(255); // 'ff'
@@ -98,7 +98,7 @@ export function padHex (x: number): string {
 
 /**
  * Converts an unformatted hex string to [r, g, b].
- * 
+ *
  * @param hex The Hex
  * @example
  * hexToRgb('fff'); // [255, 255, 255]
@@ -111,7 +111,7 @@ export function hexToRgb (hex: string) {
 
 /**
  * Converts a rgb array to a formatted hex.
- * 
+ *
  * @param param0 The [r, g, b, a] array.
  * @example
  * rgbToHex([255, 255, 255]); // '#ffffff'
@@ -124,7 +124,7 @@ export function rgbToHex ([r, g, b, a]: number[]): string {
 
 /**
  * Returns a random rgb color in the form of [r, g, b] array.
- * 
+ *
  * @example
  * random(); // [23, 33, 90]
  */
@@ -134,7 +134,7 @@ export function random (): number[] {
 
 /**
  * Returns a random color in the form of formatted hex.
- * 
+ *
  * @example
  * randomHex(); // '#01060e'
  */

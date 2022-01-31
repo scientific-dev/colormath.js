@@ -14,7 +14,7 @@ export namespace hex {
 
 	/**
 	 * Converts a hexadecimal number to hex string.
-	 * 
+	 *
 	 * @param num The hexadecimal number.
 	 * @example
 	 * hex.fromInt(0x7298da); // '#7298da'
@@ -26,7 +26,7 @@ export namespace hex {
 
 	/**
 	 * Converts a hexadecimal string to the hexadecimal number.
-	 * 
+	 *
 	 * @param hex The hex string.
 	 * @example
 	 * hex.toInt('7298da'); // 0x7298da
@@ -46,33 +46,33 @@ export namespace rgb {
 
 	/**
 	 * Converts a given rgb array into hsv values in the form of [h, s, v] array.
-	 * 
+	 *
 	 * @param param0 The rgb values in the form of [r, g, b] array.
 	 * @examples
 	 * rgb.toHsv([255, 255, 255]); // [0, 0, 100]
 	 */
 	export function toHsv ([r, g, b]: number[]): number[] {
 		r /= 255, g /= 255, b /= 255;
-	
+
 		let min = Math.min(r, g, b);
 		let max = Math.max(r, g, b);
-	
+
 		if (min == max) return [0, 0, min];
 		let diff = max - min;
-	
+
 		return [toHue([r, g, b], max, min), fixedFloat(100 * diff / max), fixedFloat(100 * max)];
 	}
-	
+
 	/**
 	 * Converts a given rgb array into hsl values in the form of [h, s, l] array.
-	 * 
+	 *
 	 * @param param0 The rgb values in the form of [r, g, b] array.
 	 * @examples
 	 * rgb.toHsl([255, 255, 255]); // [0, 0, 100]
 	 */
 	export function toHsl ([r, g, b]: number[]): number[] {
 		r /= 255, g /= 255, b /= 255;
-	
+
 		let min = Math.min(r, g, b);
 		let max = Math.max(r, g, b);
 		let diff = max - min;
@@ -84,13 +84,13 @@ export namespace rgb {
 			s = max == min ? 0 : diff / (l > 0.5 ? (2 - diff) : (max + min));
 			h = toHue([r, g, b], max, min);
 		}
-	
+
 		return [h, fixedFloat(s * 100), fixedFloat(l * 100)];
 	}
 
 	/**
 	 * Converts a given rgb array into hwb values in the form of [h, w, b] array
-	 * 
+	 *
 	 * @param param0 The rgb values in the form of [r, g, b] array.
 	 * @example
 	 * rgb.toHwb([255, 255, 255]); // [0, 100, 0]
@@ -105,12 +105,12 @@ export namespace rgb {
 			fixedFloat(100 * (1 - 1 / 255 * max))
 		];
 	}
-	
+
 	/**
 	 * Converts a given rgb array into cmyk values in the form of [c, m, y, k] array.
-	 * 
+	 *
 	 * @param param0 The rgb values in the form of [r, g, b] array.
-	 * @example 
+	 * @example
 	 * rgb.toCmyk([255, 255, 255]); // [0, 0, 0, 0]
 	 */
 	export function toCmyk ([r, g, b]: number[]): number[] {
@@ -120,13 +120,13 @@ export namespace rgb {
 		let k = Math.min(c, m, y);
 		let x = 1 - k;
 		let f = n => fixedFloat(((n - k) / x) * 255);
-	
+
 		return [f(c), f(m), f(y), fixedFloat(k * 255)];
 	}
 
 	/**
 	 * Converts a given rgb array into ansi 16 code.
-	 * 
+	 *
 	 * @param param0 The rgb values in the form of [r, g, b] array.
 	 * @param value The value. Optional.
 	 * @example
@@ -144,7 +144,7 @@ export namespace rgb {
 
 	/**
 	 * Converts a given rgb array into ansi 256 code.
-	 * 
+	 *
 	 * @param param0 The rgb values in the form of [r, g, b] array.
 	 * @example
 	 * rgb.toAnsi256([255, 0, 0]); // 196
@@ -164,7 +164,7 @@ export namespace rgb {
 
 	/**
 	 * Converts a given rgb array into xyz values in the form of [x, y, z] spaces.
-	 * 
+	 *
 	 * @param param0 The rgb values in the form of [r, g, b] array.
 	 * @example
 	 * rgb.toXyz([255, 255, 255]); // [95.047, 100.00001, 108.883]
@@ -176,18 +176,18 @@ export namespace rgb {
 		}
 
 		r = f(r), g = f(g), b = f(b);
-		
+
 		let x = (r * 0.4124564) + (g * 0.3575761) + (b * 0.1804375);
 		let y = (r * 0.2126729) + (g * 0.7151522) + (b * 0.072175);
 		let z = (r * 0.0193339) + (g * 0.119192) + (b * 0.9503041);
-		
+
 		return [x * 100, y * 100, z * 100];
 	}
 
 	/**
 	 * Converts rgb values into lab values in the form of [l, a, b] array.
 	 * The values returned are not rounded.
-	 * 
+	 *
 	 * @param rgb The rgb values in the form of [r, g, b] array.
 	 */
 	export function toLab (rgb: number[]): number[] {
@@ -196,7 +196,7 @@ export namespace rgb {
 
 	/**
 	 * Get the hue from the rgb color.
-	 * 
+	 *
 	 * @param param0 The rgb values in the form of [r, g, b] array.
 	 * @param max The maximum value of the rgb array. Optional.
 	 * @param min The minimum value of the rgb array. Optional.
@@ -217,7 +217,7 @@ export namespace rgb {
 
 	/**
 	 * Get the grayscale percentage by rgb values.
-	 * 
+	 *
 	 * @param param0 The rgb values in the form of [r, g, b] array.
 	 * @example
 	 * rgb.toGray([255, 255, 255]); // 100
@@ -226,27 +226,33 @@ export namespace rgb {
 		return fixedFloat((r + g + b) / 765 * 100);
 	}
 
+	export function toApple ([r, g, b]: number[]): number[] {
+		const a = (r / 255) * 65535
+		const x = (g / 255) * 65535
+		const c = (b / 255) * 65535
+		return [a, x, c]
+	}
 }
 
 export namespace hsv {
 
 	/**
 	 * Converts given hsv values into rgb values in the form of [r, g, b] array.
-	 * 
+	 *
 	 * @param param0 The hsv values in the form of [h, s, v] array.
 	 * @example
 	 * hsv.toRgb([0, 0, 100]); // [255, 255, 255]
 	 */
 	export function toRgb ([h, s, v]: number[]): number[] {
 		s /= 100, v /= 100;
-	
+
 		let result = [0, 0, 0] as number[];
 		let i = Math.floor((h / 60) % 6);
 		let f = (h / 60) - i;
 		let p = v * (1 - s);
 		let q = v * (1 - f * s);
 		let t = v * (1 - (1 - f) * s);
-	
+
 		switch (i % 6) {
 			case 0: result = [v, t, p]; break;
 			case 1: result = [q, v, p]; break;
@@ -258,10 +264,10 @@ export namespace hsv {
 
 		return result.map(x => fixedFloat(x * 255)) as number[];
 	}
-	
+
 	/**
 	 * Converts given hsv values into formatted hex string.
-	 * 
+	 *
 	 * @param param0 The hsv values in the form of [h, s, v] array.
 	 * @example
 	 * hsv.toHex([0, 0, 100]); // '#ffffff'
@@ -269,10 +275,10 @@ export namespace hsv {
 	export function toHex (hsv: number[]): string {
 		return rgbToHex(toRgb(hsv));
 	}
-	
+
 	/**
 	 * Converts given hsv values into hsl values in the form of [h, s, l] array.
-	 * 
+	 *
 	 * @param param0 The hsv values in the form of [h, s, v] array.
 	 * @example
 	 * hsv.toHsl([0, 0, 100]); // [0, 0, 100]
@@ -294,24 +300,24 @@ export namespace hsl {
 
 	/**
 	 * Converts given hsl values into rgb values in the form of [r, g, b] array.
-	 * 
+	 *
 	 * @param param0 The hsl values in the form of [h, s, l] array.
 	 * @examples
 	 * hsl.toRgb([0, 0, 100]); // [255, 255, 255]
 	 */
 	export function toRgb ([h, s, l]: number[]): number[] {
 		s /= 100, l /= 100;
-	
+
 		let k = n => (n + h / 30) % 12;
 		let a = s * Math.min(l, 1 - l);
 		let f = n => fixedFloat((l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)))) * 255);
-	
+
 		return [f(0), f(8), f(4)];
 	}
 
 	/**
 	 * Converts given hsl values into hsv values in the form of [h, s, v] array.
-	 * 
+	 *
 	 * @param param0 The hsl values in the form of [h, s, l] array.
 	 */
 	export function toHsv ([h, s, l]: number[]): number[] {
@@ -320,7 +326,7 @@ export namespace hsl {
 		let max = Math.max(0.01, l);
 		let s2 = s;
 
-		l *= 2, 
+		l *= 2,
 		s *= l > 1 ? 2 - l : l,
 		s2 *= max > 1 ? 2 - max : max;
 
@@ -329,10 +335,10 @@ export namespace hsl {
 
 		return [h, fixedFloat(S * 100), fixedFloat(V * 100)];
 	}
-	
+
 	/**
 	 * Converts given hsl values into formatted hex string.
-	 * 
+	 *
 	 * @param hsl The hsv values in the form of [h, s, l] array.
 	 * @example
 	 * hsl.toHex([0, 0, 100]); // '#ffffff'
@@ -347,7 +353,7 @@ export namespace hwb {
 
 	/**
 	 * Converts given hwb values into rgb values.
-	 * 
+	 *
 	 * @param param0 The hwb values in the form of [h, w, b] array.
 	 */
 	export function toRgb ([h, w, b]: number[]): number[] {
@@ -357,26 +363,26 @@ export namespace hwb {
 }
 
 export namespace cmyk {
-	
+
 	/**
 	 * Converts a given cmyk array intro rgb values in the form of [r, g, b] array.
-	 * 
+	 *
 	 * @param param0 The cmyk values in the form of [c, m, y, k] array.
-	 * @example 
+	 * @example
 	 * cmyk.toRgb([0, 0, 0, 0]); // [255, 255, 255]
 	 */
 	export function toRgb ([c, m, y, k]: number[]): number[] {
 		c /= 100, m /= 100, y /= 100, k /= 100;
-	
+
 		let x = 1 - k;
 		let f = n => fixedFloat((1 - (n * x + k)) * 255);
-	
+
 		return [f(c), f(m), f(y)];
 	}
-	
+
 	/**
 	 * Converts given cmyk values into formatted hex string.
-	 * 
+	 *
 	 * @param hsl The cmyk values in the form of [c, m, y, k] array.
 	 * @example
 	 * cmyk.toHex([0, 0, 0, 0]); // '#ffffff'
@@ -391,7 +397,7 @@ export namespace xyz {
 
 	/**
 	 * Converts xyz values into rgb in the form of [r, g, b] array.
-	 * 
+	 *
 	 * @param param0 The xyz values in the form of [x, y, z] array.
 	 * @example
 	 * xyz.toRgb([95.047, 100.00001, 108.883]); // [255, 255, 255]
@@ -406,7 +412,7 @@ export namespace xyz {
 
 			return fixedFloat(Math.min(Math.max(0, n), 1) * 255);
 		};
-		
+
 		return [
 			f((x * 3.2404542) + (y * -1.5371385) + (z * -0.4985314)),
 			f((x * -0.969266) + (y * 1.8760108) + (z * 0.041556)),
@@ -417,7 +423,7 @@ export namespace xyz {
 	/**
 	 * Converts xyz values into lab values in the form of [l, a, b] array.
 	 * The values are not rounded when returned by the function.
-	 * 
+	 *
 	 * @param param0 The xyz values in the form of [x, y, z] array.
 	 */
 	export function toLab ([x, y, z]: number[]): number[] {
@@ -432,7 +438,7 @@ export namespace lab {
 
 	/**
 	 * Converts lab values into rgb values in the form of [l, a, b] array.
-	 * 
+	 *
 	 * @param lab The lab values in the form of [l, a, b] array.
 	 */
 	export function toRgb (lab: number[]): number[] {
@@ -442,7 +448,7 @@ export namespace lab {
 	/**
 	 * Converts lab values into xyz values in the form of [x, y, z] array.
 	 * The values returned are not rounded.
-	 * 
+	 *
 	 * @param param0 The lab values in the form of [l, a, b] array.
 	 */
 	export function toXyz ([l, a, b]: number[]): number[] {
@@ -453,19 +459,19 @@ export namespace lab {
 			let n2 = n ** 3;
 			return n2 > 0.008856 ? n2 : (n - 16 / 116) / 7.787;
 		}
-	
+
 		return [f(x) * 95.047, f(y) * 100, f(z) * 108.883];
 	}
 
 	/**
 	 * Converts lab values into lch values in the form of [l, c, h] array.
-	 * 
+	 *
 	 * @param param0 The lab values in the form of [l, a, b] array.
 	 */
 	export function toLch ([l, a, b]: number[]): number[] {
 		let	h = Math.atan2(b, a) * 360 / 2 / Math.PI;
 		if (h < 0) h += 360;
-		
+
 		return [l, Math.sqrt(a * a + b * b), h];
 	}
 
@@ -475,7 +481,7 @@ export namespace lch {
 
 	/**
 	 * Converts lch values into lab values in the form of [l, a, b] array.
-	 * 
+	 *
 	 * @param param0 The lch values in the form of [l, c, h] array.
 	 */
 	export function toLab ([l, c, h]: number[]): number[] {
@@ -489,20 +495,20 @@ export namespace ansi16 {
 
 	/**
 	 * Converts an ansi16 code to rgb values.
-	 * 
+	 *
 	 * @param n The ansi16 code.
 	 * @example
 	 * ansi16.toRgb(91); // [255, 0, 0]
 	 */
 	export function toRgb (n: number): number[] {
 		let color = n % 10;
-		
+
 		if (color === 0 || color === 7) {
 			if (n > 50) color += 3.5;
 			color /=  10.5 * 255;
 			return [color, color, color];
 		}
-		
+
 		let mult = (~~(n > 50) + 1) * 0.5;
 
 		return [
@@ -518,7 +524,7 @@ export namespace ansi256 {
 
 	/**
 	 * Converts an ansi256 code to rgb values.
-	 * 
+	 *
 	 * @param n The ansi256 code.
 	 * @example
 	 * ansi256.toRgb(196); // [255, 0, 0]
@@ -531,27 +537,70 @@ export namespace ansi256 {
 
 		n -= 16;
 		let rem = n % 36;
-	
+
 		return [
 			fixedFloat(Math.floor(n / 36) / 5 * 255),
 			fixedFloat(Math.floor(rem / 6) / 5 * 255),
 			fixedFloat((rem % 6) / 5 * 255)
 		];
 	}
-	
 }
 
 export namespace gray {
 
 	/**
 	 * Converts grayscale percentage to rgb values in the form of [r, g, b] array.
-	 * 
+	 *
 	 * @param gray The grayscale percentage
-	 * @example 
+	 * @example
 	 * gray.toRgb(100); // [255, 255, 255]
 	 */
 	export function toRgb (gray: number): number[] {
 		let x = fixedFloat(gray / 100 * 255);
 		return [x, x, x];
+	}
+
+	export function toHsl (gray: number): number[] {
+		return [0, 0, gray]
+	}
+
+	export function toHsv (gray: number): number[] {
+		return [0, 0, gray / 100]
+	}
+
+	export function toHwb (gray: number): number[] {
+		return [0, 100, gray]
+	}
+
+	export function toCmyx (gray: number): number[] {
+		return [0, 0, 0, gray]
+	}
+
+	export function toLab (gray: number): number[] {
+		return [gray, 0, 0]
+	}
+
+	export function toHex (gray: number): string {
+		const value = Math.round(gray / 100 * 255) & 0xFF
+		const int = (value << 16) + (value << 8) + value
+		const string = int.toString(16)
+
+		return "000000".substring(string.length) + string.toUpperCase()
+	}
+}
+
+export namespace apple {
+	/**
+	 * Converts apple code color to rgb values in form of [r, g, b] array.
+	 *
+	 * @param apple code color
+	 * @example
+	 * apple.toRgb([65535, 65535, 65535])
+	 */
+	export function toRgb ([r, g, b]: number[]): number[] {
+		const newR = (r / 65535) * 255
+		const newG = (g / 65535) * 255
+		const newB = (b / 65535) * 255
+		return [newR, newG, newB]
 	}
 }
