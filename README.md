@@ -26,7 +26,7 @@ Using colormath.js through Browser
 Using colormath.js through Deno
 
 ```js
-import * as colors from 'https://deno.land/x/colormath/mod.ts';
+import * as colormath from 'https://deno.land/x/colormath/mod.ts';
 ```
 
 ## Examples
