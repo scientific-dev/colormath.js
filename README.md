@@ -14,7 +14,7 @@ console.log(colors.hex.toRgb('fff')); // [255, 255, 255]
 Using colormath.js through Node.js
 
 ```js
-const colormath.js = require('colormath.js');
+const colormath = require('colormath.js');
 ```
 
 Using colormath.js through Browser
@@ -26,7 +26,7 @@ Using colormath.js through Browser
 Using colormath.js through Deno
 
 ```js
-import * as colors from 'https://cdn.skypack.dev/colormath.js?dts';
+import * as colors from 'https://deno.land/x/colormath/';
 ```
 
 ## Examples
