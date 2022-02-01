@@ -119,7 +119,7 @@ export namespace rgb {
 		let y = 1 - (b / 255);
 		let k = Math.min(c, m, y);
 		let x = 1 - k;
-		let f = n => fixedFloat(((n - k) / x) * 255);
+		let f = n => fixedFloat(((n - k) / x) * 255) || 0;
 
 		return [f(c), f(m), f(y), fixedFloat(k * 255)];
 	}
@@ -212,7 +212,7 @@ export namespace rgb {
 		let h = rIsMin ? 3 : bIsMin ? 1 : 5;
 		let d = rIsMin ? g - b : bIsMin ? r - g : b - r;
 
-		return fixedFloat((h - d / (max - min)) * 60);
+		return fixedFloat((h - d / (max - min)) * 60) || 0;
 	}
 
 	/**
