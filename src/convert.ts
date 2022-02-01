@@ -57,7 +57,7 @@ export namespace rgb {
 		let min = Math.min(r, g, b);
 		let max = Math.max(r, g, b);
 
-		if (min == max) return [0, 0, min];
+		if (min == max) return [0, 0, fixedFloat(min * 100)];
 		let diff = max - min;
 
 		return [toHue([r, g, b], max, min), fixedFloat(100 * diff / max), fixedFloat(100 * max)];
