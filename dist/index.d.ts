@@ -409,14 +409,14 @@ declare function complement(color: ColorValue): ColorResult;
  * Saturates a color.
  *
  * @param color The [r, g, b] array or hex string.
- * @param value The saturation amount. Value ranges from 0.0 to 1.0. Default value is 0.5.
+ * @param value The saturation amount. Value ranges from 0 to 100. Default value is 20.
  */
 declare function saturate(color: ColorValue, value?: number): ColorResult;
 /**
  * Desaturates a color.
  *
  * @param color The [r, g, b] array or hex string.
- * @param value The desaturation amount. Value ranges from 0.0 to 1.0. Default value is 0.5.
+ * @param value The desaturation amount. Value ranges from 0 to 100. Default value is 20.
  */
 declare function desaturate(color: ColorValue, value?: number): ColorResult;
 /**

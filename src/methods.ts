@@ -45,22 +45,26 @@ export function complement (color: ColorValue): ColorResult {
  * Saturates a color.
  *
  * @param color The [r, g, b] array or hex string.
- * @param value The saturation amount. Value ranges from 0.0 to 1.0. Default value is 0.5.
+ * @param value The saturation amount. Value ranges from 0 to 100. Default value is 20.
  */
-export function saturate (color: ColorValue, value = 0.5): ColorResult {
-	if (value > 1) value = 1;
-	return useHSV(color, hsv => hsv[1] += (100 - hsv[1]) * value);
+export function saturate (color: ColorValue, value = 20): ColorResult {
+	return useHSV(color, hsv => {
+		let x = hsv[1] + value;
+		if (x > 100) x = 100;
+		else if (x < 0) x = 0;
+
+		hsv[1] = x;
+	});
 }
 
 /**
  * Desaturates a color.
  *
  * @param color The [r, g, b] array or hex string.
- * @param value The desaturation amount. Value ranges from 0.0 to 1.0. Default value is 0.5.
+ * @param value The desaturation amount. Value ranges from 0 to 100. Default value is 20.
  */
-export function desaturate (color: ColorValue, value = 0.5): ColorResult {
-	if (value > 1) value = 1;
-	return useHSV(color, hsv => hsv[0] -= hsv[0] * value);
+export function desaturate (color: ColorValue, value = 20): ColorResult {
+	return saturate(color, -value);
 }
 
 /**
@@ -69,7 +73,9 @@ export function desaturate (color: ColorValue, value = 0.5): ColorResult {
  * @param color The [r, g, b] array or hex string.
  */
 export function grayscale (color: ColorValue): ColorResult {
-	return desaturate(color, 0);
+	let [r, g, b] = RGB(color);
+	let x = Math.floor((r + g + b) / 765 * 100);
+	return new ColorResult([x, x, x]);
 }
 
 /**
